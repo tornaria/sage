@@ -104,52 +104,25 @@ ctypedef double Double
 
 cdef class Lfunction:
     cdef void *thisptr
-    cdef void __init_fun(self, char *NAME, int what_type, dirichlet_coeff, long long Period, double q,  c_Complex w, int A, double *g, c_Complex *l, int n_poles, c_Complex *p, c_Complex *r)
-    cdef c_Complex __value(self,c_Complex s,int derivative)
-    cdef c_Complex __hardy_z_function(self,c_Complex s)
-    cdef int __compute_rank(self)
+    cdef void _init_fun(self, char *NAME, int what_type, dirichlet_coeff, long long Period, double q,  c_Complex w, int A, double *g, c_Complex *l, int n_poles, c_Complex *p, c_Complex *r)
+    cdef c_Complex _value(self,c_Complex s,int derivative)
+    cdef c_Complex _hardy_z_function(self,c_Complex s)
+    cdef int _compute_rank(self)
     #strange bug, replacing Double with double gives me a compile error
-    cdef Double __typedN(self, double T)
-    cdef void __find_zeros_v(self, double T1, double T2, double stepsize,doublevec *result)
-    cdef int __find_zeros(self, long count, long start, double max_refine, int rank, const char* message_stamp, doublevec* result)
+    cdef Double _typedN(self, double T)
+    cdef void _find_zeros_v(self, double T1, double T2, double stepsize,doublevec *result)
+    cdef int _find_zeros(self, long count, long start, double max_refine, int rank, const char* message_stamp, doublevec* result)
 
     cdef str _repr
 
-
 cdef class Lfunction_I(Lfunction):
-    cdef void __init_fun(self, char *NAME, int what_type, dirichlet_coeff, long long Period, double q,  c_Complex w, int A, double *g, c_Complex *l, int n_poles, c_Complex *p, c_Complex *r)
-    cdef inline c_Complex __value(self,c_Complex s,int derivative)
-    cdef inline c_Complex __hardy_z_function(self,c_Complex s)
-    cdef int __compute_rank(self)
-    cdef void __find_zeros_v(self, double T1, double T2, double stepsize, doublevec *result)
-    cdef double __typedN(self, double T)
-    cdef int __find_zeros(self, long count, long start, double max_refine, int rank, const char* message_stamp, doublevec *result)
-
+    pass
 
 cdef class Lfunction_D(Lfunction):
-    cdef void __init_fun(self, char *NAME, int what_type, dirichlet_coeff, long long Period, double q,  c_Complex w, int A, double *g, c_Complex *l, int n_poles, c_Complex *p, c_Complex *r)
-    cdef inline c_Complex __value(self,c_Complex s,int derivative)
-    cdef inline c_Complex __hardy_z_function(self,c_Complex s)
-    cdef inline int __compute_rank(self)
-    cdef void __find_zeros_v(self, double T1, double T2, double stepsize, doublevec *result)
-    cdef double __typedN(self, double T)
-    cdef int __find_zeros(self, long count, long start,double max_refine, int rank, const char* message_stamp, doublevec *result)
-
+    pass
 
 cdef class Lfunction_C(Lfunction):
-    cdef void __init_fun(self, char *NAME, int what_type, dirichlet_coeff, long long Period, double q,  c_Complex w, int A, double *g, c_Complex *l, int n_poles, c_Complex *p, c_Complex *r)
-    cdef inline c_Complex __value(self,c_Complex s,int derivative)
-    cdef inline c_Complex __hardy_z_function(self,c_Complex s)
-    cdef inline int __compute_rank(self)
-    cdef void __find_zeros_v(self, double T1, double T2, double stepsize, doublevec *result)
-    cdef double __typedN(self, double T)
-    cdef int __find_zeros(self, long count, long start, double max_refine, int rank, const char* message_stamp, doublevec *result)
-
+    pass
 
 cdef class Lfunction_Zeta(Lfunction):
-    cdef inline c_Complex __value(self,c_Complex s,int derivative)
-    cdef inline c_Complex __hardy_z_function(self,c_Complex s)
-    cdef inline int __compute_rank(self)
-    cdef void __find_zeros_v(self, double T1, double T2, double stepsize, doublevec *result)
-    cdef double __typedN(self, double T)
-    cdef int __find_zeros(self, long count, long start, double max_refine, int rank, const char* message_stamp, doublevec *result)
+    pass
