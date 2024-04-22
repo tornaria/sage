@@ -1,7 +1,6 @@
-include(`sage_spkg_versions_toml.m4')dnl' -*- conf-toml -*-
 [build-system]
 requires = [
-    SPKG_INSTALL_REQUIRES_setuptools
+    'setuptools',
 ]
 build-backend = "setuptools.build_meta"
 
@@ -9,8 +8,6 @@ build-backend = "setuptools.build_meta"
 name = "sage-conf"
 description = "Sage: Open Source Mathematics Software: Configuration module for the SageMath library"
 readme = "README.rst"
-dnl Not including the standard metadata from pyproject_toml_metadata.m4
-dnl because sage-conf is GPL v3+.
 license = {text = "GNU General Public License (GPL) v3 or later"}
 authors = [{name = "The Sage Developers", email = "sage-support@googlegroups.com"}]
 classifiers = [
